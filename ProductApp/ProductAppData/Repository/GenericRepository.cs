@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProductApp.ProductAppData.Repository;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
+
 {
     private readonly DbContext _dbContext;
 
@@ -16,7 +18,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return await _dbContext.Set<T>().ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
     {
         return await _dbContext.Set<T>().FindAsync(id);
     }
@@ -40,4 +42,5 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         return await _dbContext.SaveChangesAsync() > 0;
     }
+    
 }

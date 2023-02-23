@@ -1,9 +1,5 @@
-﻿using System.Security.Claims;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using ProductApp.ProductAppData.DataModel;
-using ProductApp.ProductAppData.Repository;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using ProductApp.ProductAppData.UnitOfWork;
 
 namespace ProductApp.Controllers;

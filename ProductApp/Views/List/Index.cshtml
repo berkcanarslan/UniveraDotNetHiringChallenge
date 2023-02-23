@@ -1,0 +1,31 @@
+﻿@using ProductApp.ProductAppData.DataModel
+@model IEnumerable<List>
+
+<html>
+<head>
+    <title>Lists</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>List Name</th>
+                <th>Category</th>
+                <th>Created Date</th>
+                <th>Completion Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var list in Model)
+            {
+                <tr onclick="location.href='@Url.Action("ProductsInList", "List", new { listId = list.Id })'">
+                    <td>@list.Name</td>
+                    <td>@list.Description</td>
+                    <td>@list.CreationDate</td>
+                    <td>@list.CompletionDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

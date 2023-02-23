@@ -8,6 +8,8 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly ProductAppDbContext _context;
     private IGenericRepository<Product> _productRepository;
+    private IGenericRepository<List> _listRepository;
+    private IGenericRepository<ListProduct> _listProductRepository;
 
     public UnitOfWork(ProductAppDbContext context)
     {
@@ -22,6 +24,23 @@ public class UnitOfWork : IUnitOfWork
                 return _productRepository;
         }
     }
+    public IGenericRepository<List> ListRepository
+    {
+        get
+        {
+            _listRepository = new GenericRepository<List>(_context);
+            return _listRepository;
+        }
+    }
+    public IGenericRepository<ListProduct> ListProductRepository
+    {
+        get
+        {
+            _listProductRepository = new GenericRepository<ListProduct>(_context);
+            return _listProductRepository;
+        }
+    }
+
 
     public void Save()
     {

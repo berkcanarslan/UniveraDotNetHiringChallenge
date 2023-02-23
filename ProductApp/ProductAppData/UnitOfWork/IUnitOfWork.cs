@@ -6,5 +6,6 @@ namespace ProductApp.ProductAppData.UnitOfWork;
 public interface IUnitOfWork
 {
     IGenericRepository<Product> ProductRepository { get; }
+    IGenericRepository<List> ListRepository { get; }
     void Save();
 }
