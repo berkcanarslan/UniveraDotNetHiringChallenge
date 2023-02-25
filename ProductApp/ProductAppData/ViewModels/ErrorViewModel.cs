@@ -1,4 +1,4 @@
-namespace ProductApp.ProductAppData;
+namespace ProductApp.ProductAppData.ViewModels;
 
 public class ErrorViewModel
 {

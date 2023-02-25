@@ -12,6 +12,7 @@ public class ProductAppDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<List> Lists { get; set; }
     public DbSet<ListProduct> ListProducts { get; set; }
+    public DbSet<User> Users { get; set; }
     
     // Add more DbSets for other entities as needed
 
